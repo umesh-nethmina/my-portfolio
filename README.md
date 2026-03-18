@@ -20,4 +20,4 @@ A modern, full-stack portfolio application built with Next.js and Supabase.
 
 ---
 
-**Made with ❤️**
+**Made By Umesh_Nethmina**
