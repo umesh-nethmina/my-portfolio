@@ -19,6 +19,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
     .single()
 
   if (error || !blog) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching blog:', error)
     notFound()
   }

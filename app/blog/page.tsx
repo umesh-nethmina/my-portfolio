@@ -13,6 +13,7 @@ export default async function BlogPage() {
     .order('created_at', { ascending: false })
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching blogs:', error)
   }
 

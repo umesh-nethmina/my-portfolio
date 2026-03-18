@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Github, Linkedin, Twitter } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -23,9 +23,9 @@ export default function Home() {
       </div>
 
       <div className="flex gap-6 pt-12 text-foreground/60">
-        <a href="#" className="hover:text-foreground transition-colors"><Github size={24} /></a>
-        <a href="#" className="hover:text-foreground transition-colors"><Linkedin size={24} /></a>
-        <a href="#" className="hover:text-foreground transition-colors"><Twitter size={24} /></a>
+        <a href="https://github.com/umesh-nethmina" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Github size={24} /></a>
+        <a href="http://linkedin.com/in/umesh-nethmina-b76582306" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Linkedin size={24} /></a>
+        <a href="mailto:umeshnethmina118@gmail.com" className="hover:text-foreground transition-colors"><Mail size={24} /></a>
       </div>
     </div>
   )
