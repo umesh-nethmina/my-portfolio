@@ -6,10 +6,10 @@ export default function Home() {
     <div className="flex-1 flex flex-col items-center justify-center container mx-auto px-6 py-20 text-center space-y-8">
       <div className="space-y-4">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
-          Hi, I'm a <span className="text-blue-500">Full-Stack Developer</span>
+          Hi, I'm Umesh <span className="text-blue-500">Full-Stack Developer</span>
         </h1>
         <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto font-light">
-          I build modern, high-performance web applications with Next.js, Supabase, and Tailwind CSS.
+          I design and build scalable, high-performance web applications with a focus on clean architecture, intuitive user experiences, and real-world impact.
         </p>
       </div>
       
