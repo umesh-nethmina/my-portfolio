@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import { format } from 'date-fns'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft } from 'lucide-react'
 import DOMPurify from 'isomorphic-dompurify'
 import { marked } from 'marked'
@@ -33,6 +34,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
       <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-foreground/50 hover:text-foreground mb-12 transition-colors">
         <ArrowLeft size={16} /> Back to all posts
       </Link>
+
+      {blog.cover_image && (
+        <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden mb-10 bg-foreground/5">
+          <Image
+            src={blog.cover_image}
+            alt={blog.title}
+            fill
+            className="object-cover"
+            unoptimized
+          />
+        </div>
+      )}
       
       <header className="mb-12 border-b border-foreground/10 pb-12">
         <div className="text-sm font-medium text-blue-500 mb-4 tracking-wider uppercase">
@@ -50,3 +63,4 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
     </article>
   )
 }
+

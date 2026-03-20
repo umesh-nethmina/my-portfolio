@@ -13,8 +13,12 @@ create table public.blogs (
   id uuid default gen_random_uuid() primary key,
   title text not null,
   content text not null,
+  cover_image text,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
+
+-- Migration: If blogs table already exists, add cover_image column
+-- ALTER TABLE public.blogs ADD COLUMN IF NOT EXISTS cover_image text;
 
 -- Set up Row Level Security (RLS)
 alter table public.projects enable row level security;

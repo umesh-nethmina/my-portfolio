@@ -61,8 +61,13 @@ export async function addBlog(formData: FormData) {
 
   const title = formData.get('title') as string
   const content = formData.get('content') as string
+  const cover_image = formData.get('cover_image') as string
 
-  const { error } = await supabase.from('blogs').insert({ title, content })
+  const { error } = await supabase.from('blogs').insert({
+    title,
+    content,
+    cover_image: cover_image || null,
+  })
 
   if (!error) {
     revalidatePath('/blog')
@@ -75,4 +80,50 @@ export async function deleteBlog(id: string) {
   await supabase.from('blogs').delete().eq('id', id)
   revalidatePath('/blog')
   revalidatePath('/admin')
+}
+
+export async function updateProject(id: string, formData: FormData) {
+  const supabase = await createClient()
+
+  const title = formData.get('title') as string
+  const description = formData.get('description') as string
+  const github_url = formData.get('github_url') as string
+  const image_url = formData.get('image_url') as string
+
+  const { error } = await supabase
+    .from('projects')
+    .update({
+      title,
+      description,
+      github_url: github_url || null,
+      image_url: image_url || null,
+    })
+    .eq('id', id)
+
+  if (!error) {
+    revalidatePath('/projects')
+    revalidatePath('/admin')
+  }
+}
+
+export async function updateBlog(id: string, formData: FormData) {
+  const supabase = await createClient()
+
+  const title = formData.get('title') as string
+  const content = formData.get('content') as string
+  const cover_image = formData.get('cover_image') as string
+
+  const { error } = await supabase
+    .from('blogs')
+    .update({
+      title,
+      content,
+      cover_image: cover_image || null,
+    })
+    .eq('id', id)
+
+  if (!error) {
+    revalidatePath('/blog')
+    revalidatePath('/admin')
+  }
 }
